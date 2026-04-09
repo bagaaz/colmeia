@@ -336,16 +336,26 @@ nav a{font-size:1.3rem;color:var(--w)}
 .mob-tog.active span:nth-child(1){transform:rotate(45deg) translate(6px,6px)}
 .mob-tog.active span:nth-child(2){opacity:0}
 .mob-tog.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
-/* Hero mobile */
-.hero-content{padding:100px 0 60px;gap:36px}
-.hero-text h1{font-size:clamp(2rem,7vw,2.8rem)}
-.hero-text p{font-size:1rem}
-.hero-btns{flex-direction:column;align-items:center;gap:12px}
-.hero-btns .btn{width:100%;text-align:center;justify-content:center}
-.hero-form{padding:28px 20px}
-.hero-form h3{font-size:1.25rem}
+/* Hero mobile — fix for S25 and small screens */
+#hero{min-height:auto}
+.hero-content{padding:100px 0 50px;gap:32px}
+.hero-text h1{font-size:clamp(1.8rem,6.5vw,2.6rem);margin-bottom:18px;word-break:break-word}
+.hero-text p{font-size:.95rem;margin-bottom:28px;line-height:1.65}
+.hero-badge{font-size:.7rem;padding:6px 14px;gap:6px;flex-wrap:wrap;justify-content:center}
+.hero-btns{flex-direction:column;align-items:stretch;gap:10px;margin-bottom:36px}
+.hero-btns .btn{width:100%;text-align:center;justify-content:center;padding:15px 20px;font-size:.9rem;white-space:normal;line-height:1.3}
+.hero-form .btn{white-space:normal;line-height:1.3}
+.hero-form-wrap{width:100%}
+.hero-form{padding:24px 16px}
+.hero-form h3{font-size:1.15rem}
+.hero-form .fs{font-size:.82rem;margin-bottom:22px}
+.hero-form .btn{padding:16px;font-size:.95rem}
 .fr{grid-template-columns:1fr}
-.hero-stats{flex-direction:column;gap:20px;align-items:center}
+.fg{margin-bottom:14px}
+.fg input,.fg select,.fg textarea{padding:13px 14px;font-size:.9rem}
+.fg label{font-size:.72rem;margin-bottom:4px}
+.ft{font-size:.7rem}
+.hero-stats{flex-direction:column;gap:16px;align-items:center;padding-top:28px}
 .hero-stat .num{font-size:2rem}
 /* Grids */
 .svc-grid,.cases-grid,.test-grid{grid-template-columns:1fr}
@@ -375,14 +385,22 @@ nav a{font-size:1.3rem;color:var(--w)}
 @media(max-width:480px){
 .sp{padding:60px 0}
 .container,.container-w{padding:0 12px}
-/* Hero */
-.hero-content{padding:90px 0 50px;gap:28px}
-.hero-text h1{font-size:1.8rem}
-.hero-badge{font-size:.7rem;padding:6px 14px}
-.hero-form{padding:22px 14px}
-.hero-form h3{font-size:1.15rem}
-.fg input,.fg select,.fg textarea{padding:12px 14px;font-size:.9rem}
-.fg label{font-size:.72rem}
+/* Hero — S25 and small phones */
+.hero-content{padding:80px 0 40px;gap:24px}
+.hero-text h1{font-size:1.65rem;line-height:1.15;margin-bottom:14px}
+.hero-text p{font-size:.88rem;margin-bottom:22px}
+.hero-badge{font-size:.65rem;padding:5px 12px;margin-bottom:20px}
+.hero-form{padding:20px 14px}
+.hero-form h3{font-size:1.05rem}
+.hero-form .fs{font-size:.78rem;margin-bottom:18px}
+.hero-form .btn{padding:14px;font-size:.88rem}
+.fg{margin-bottom:12px}
+.fg input,.fg select,.fg textarea{padding:11px 12px;font-size:.85rem}
+.fg label{font-size:.68rem;margin-bottom:3px}
+.ft{font-size:.65rem;gap:6px}
+.hero-stats{gap:14px;padding-top:24px}
+.hero-stat .num{font-size:1.8rem}
+.hero-stat .lbl{font-size:.75rem}
 .sh{margin-bottom:48px}
 .sh h2{font-size:1.7rem}
 /* Video — bigger, 1 per view */
@@ -397,9 +415,10 @@ nav a{font-size:1.3rem;color:var(--w)}
 .test-card{padding:24px 18px}
 .test-card blockquote{font-size:.85rem}
 .svc-card{padding:24px 16px}
-/* Buttons */
-.btn{padding:14px 24px;font-size:.9rem}
-.btn-lg{padding:16px 28px;font-size:.95rem}
+/* Buttons — allow text wrap on small screens */
+.btn{padding:14px 24px;font-size:.85rem;white-space:normal;line-height:1.3}
+.btn-lg{padding:14px 22px;font-size:.88rem}
+.btn svg{flex-shrink:0}
 /* Map — show full left side */
 .map-full .map-svg-container{width:250%;left:0}
 .global-inner{padding:0 12px 30px}
