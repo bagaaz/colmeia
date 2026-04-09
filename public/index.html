@@ -31,8 +31,8 @@
 --t:.35s cubic-bezier(.4,0,.2,1);
 --r:12px;--rl:20px;
 }
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:var(--fb);color:var(--g8);background:var(--w);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+body{font-family:var(--fb);color:var(--g8);background:var(--w);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;width:100%;max-width:100vw}
 img{max-width:100%;height:auto;display:block}
 a{text-decoration:none;color:inherit;transition:var(--t)}
 
@@ -197,15 +197,15 @@ nav a:hover::after{width:100%}
 
 /* ===== TESTIMONIALS ===== */
 #depoimentos{background:var(--w);overflow:hidden}
-.vid-carousel{position:relative;margin-bottom:80px;padding:0 52px}
+.vid-carousel{position:relative;margin-bottom:80px;padding:0 52px;overflow:hidden}
 .vid-track{display:flex;gap:20px;transition:transform .5s cubic-bezier(.4,0,.2,1);will-change:transform;cursor:grab}
 .vid-track:active{cursor:grabbing}
 .vid-btn{position:absolute;top:50%;transform:translateY(-50%);width:56px;height:56px;border-radius:50%;background:var(--p);border:2px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;transition:var(--t);box-shadow:0 6px 28px rgba(76,19,162,.5)}
 .vid-btn:hover{background:var(--s);border-color:var(--s);box-shadow:0 6px 36px rgba(170,199,50,.5);transform:translateY(-50%) scale(1.1)}
 .vid-btn svg{width:24px;height:24px;fill:var(--w);transition:var(--t)}
 .vid-btn:hover svg{fill:var(--d)}
-.vid-btn.prev{left:-28px}
-.vid-btn.next{right:-28px}
+.vid-btn.prev{left:4px}
+.vid-btn.next{right:4px}
 .vid-card{width:210px;height:374px;border-radius:var(--rl);overflow:hidden;position:relative;cursor:pointer;transition:var(--t);flex-shrink:0}
 .vid-card:hover{transform:scale(1.04);box-shadow:0 16px 48px rgba(0,0,0,.2)}
 .vid-bg{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:22px 16px;position:relative}
@@ -326,6 +326,9 @@ footer{background:var(--d);padding:72px 0 0}
 }
 @media(max-width:768px){
 .sp{padding:80px 0}
+.container{padding:0 16px}
+.container-w{padding:0 16px}
+/* Nav mobile */
 nav{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(10,10,15,.98);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;gap:32px;z-index:1000}
 nav.active{display:flex}
 nav a{font-size:1.3rem;color:var(--w)}
@@ -333,16 +336,74 @@ nav a{font-size:1.3rem;color:var(--w)}
 .mob-tog.active span:nth-child(1){transform:rotate(45deg) translate(6px,6px)}
 .mob-tog.active span:nth-child(2){opacity:0}
 .mob-tog.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
-.svc-grid,.cases-grid,.test-grid{grid-template-columns:1fr}
+/* Hero mobile */
+.hero-content{padding:100px 0 60px;gap:36px}
+.hero-text h1{font-size:clamp(2rem,7vw,2.8rem)}
+.hero-text p{font-size:1rem}
+.hero-btns{flex-direction:column;align-items:center;gap:12px}
+.hero-btns .btn{width:100%;text-align:center;justify-content:center}
+.hero-form{padding:28px 20px}
+.hero-form h3{font-size:1.25rem}
 .fr{grid-template-columns:1fr}
 .hero-stats{flex-direction:column;gap:20px;align-items:center}
-.vid-carousel{padding:0 40px}
-.vid-card{width:170px;height:302px}
-.vid-btn{width:36px;height:36px}
+.hero-stat .num{font-size:2rem}
+/* Grids */
+.svc-grid,.cases-grid,.test-grid{grid-template-columns:1fr}
+.svc-card,.sol-card{padding:28px 20px}
+/* Video carousel — 1 card per view */
+.vid-carousel{padding:0 48px;overflow:hidden}
+.vid-card{width:calc(100vw - 128px);max-width:280px;height:auto;aspect-ratio:9/16}
+.vid-btn{width:40px;height:40px;box-shadow:0 4px 16px rgba(76,19,162,.6)}
 .vid-btn svg{width:18px;height:18px}
+.vid-btn.prev{left:4px}
+.vid-btn.next{right:4px}
+.vid-play{width:52px;height:52px}
+.vid-play svg{width:20px;height:20px}
+/* Map — aligned left to show Americas */
+.map-full .map-svg-container{width:200%;left:0;transform:none}
+.global-inner{padding:0 16px 40px}
+/* About */
+.about-inner{grid-template-columns:1fr}
+.about-vals{grid-template-columns:1fr}
+/* Footer */
 .ft-grid{grid-template-columns:1fr;gap:32px}
 .ft-bottom{flex-direction:column;gap:12px;text-align:center}
-.about-vals{grid-template-columns:1fr}
+/* CTA */
+.cta-final h2{font-size:clamp(1.6rem,5vw,2.2rem)}
+.cta-final{padding:80px 0}
+}
+@media(max-width:480px){
+.sp{padding:60px 0}
+.container,.container-w{padding:0 12px}
+/* Hero */
+.hero-content{padding:90px 0 50px;gap:28px}
+.hero-text h1{font-size:1.8rem}
+.hero-badge{font-size:.7rem;padding:6px 14px}
+.hero-form{padding:22px 14px}
+.hero-form h3{font-size:1.15rem}
+.fg input,.fg select,.fg textarea{padding:12px 14px;font-size:.9rem}
+.fg label{font-size:.72rem}
+.sh{margin-bottom:48px}
+.sh h2{font-size:1.7rem}
+/* Video — bigger, 1 per view */
+.vid-carousel{padding:0 40px}
+.vid-card{width:calc(100vw - 112px);max-width:260px;aspect-ratio:9/16;height:auto}
+.vid-btn{width:34px;height:34px}
+.vid-btn.prev{left:2px}
+.vid-btn.next{right:2px}
+.vid-info .name{font-size:.85rem}
+.vid-info .role{font-size:.72rem}
+/* Testimonials */
+.test-card{padding:24px 18px}
+.test-card blockquote{font-size:.85rem}
+.svc-card{padding:24px 16px}
+/* Buttons */
+.btn{padding:14px 24px;font-size:.9rem}
+.btn-lg{padding:16px 28px;font-size:.95rem}
+/* Map — show full left side */
+.map-full .map-svg-container{width:250%;left:0}
+.global-inner{padding:0 12px 30px}
+.logo-text{font-size:1.1rem}
 }
 </style>
 </head>
@@ -352,7 +413,7 @@ nav a{font-size:1.3rem;color:var(--w)}
 <header id="header">
 <div class="container-w"><div class="nav-inner">
 <a href="#hero" class="logo" aria-label="Colmeia Web">
-<img src="logo-color.webp" alt="Colmeia Web" style="height:42px;width:auto">
+<img src="logo-color.png" alt="Colmeia Web" style="height:42px;width:auto">
 </a>
 <nav id="main-nav">
 <a href="#servicos">Serviços</a><a href="#clientes">Cases</a><a href="#solucoes">Soluções</a><a href="#depoimentos">Depoimentos</a><a href="#sobre">Sobre</a><a href="#hero" class="nav-cta">Fale Conosco</a>
@@ -1534,7 +1595,7 @@ Referência em gestão de anúncios digitais
 <div class="container">
 <div class="ft-grid">
 <div class="ft-brand">
-<a href="#hero" class="logo"><img src="logo-white.webp" alt="Colmeia Web" style="height:38px;width:auto"></a>
+<a href="#hero" class="logo"><img src="logo-white.png" alt="Colmeia Web" style="height:38px;width:auto"></a>
 <p>Agência especializada em gestão completa de anúncios digitais. Transformamos investimento em resultado previsível para empresas no Brasil, EUA e Portugal.</p>
 <div class="ft-social">
 <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
@@ -1626,4 +1687,4 @@ window.addEventListener('scroll',()=>{const s=window.pageYOffset;if(s<window.inn
 const st=document.createElement('style');st.textContent='@keyframes spin{to{transform:rotate(360deg)}}';document.head.appendChild(st);
 </script>
 </body>
-</html>
+</html>                                                                                                                                                                                                                               
